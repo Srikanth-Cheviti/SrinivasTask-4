@@ -1,0 +1,35 @@
+function printDiamondPattern(rows) {
+  if (rows % 2 === 0) {
+    rows++; // Adjust rows to ensure the diamond has a center row with an odd number of stars
+  }
+
+  let spaces = Math.floor(rows / 2);
+  let stars = 1;
+
+  for (let i = 0; i < rows; i++) {
+    let rowString = "";
+
+    // Add spaces before stars
+    for (let j = 0; j < spaces; j++) {
+      rowString += " ";
+    }
+
+    // Add stars
+    for (let j = 0; j < stars; j++) {
+      rowString += "*";
+    }
+
+    console.log(rowString);
+
+    if (i < Math.floor(rows / 2)) {
+      // For the top half of the diamond
+      spaces--;
+      stars += 2;
+    } else {
+      // For the bottom half of the diamond
+      spaces++;
+      stars -= 2;
+    }
+  }
+}
+
